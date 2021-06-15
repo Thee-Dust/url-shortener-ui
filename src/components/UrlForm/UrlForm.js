@@ -16,7 +16,14 @@ class UrlForm extends Component {
 
   handleSubmit = (e, title, url) => {
     e.preventDefault();
-    this.props.makePost(title, url)
+    const newUrl = {
+      id: Date.now(),
+      title: title,
+      long_url: url,
+      short_url: `http://localhost:3001/useshorturl/${Date.now()}`
+    };
+    console.log(newUrl)
+    this.props.makePost(newUrl);
     this.clearInputs();
   }
 

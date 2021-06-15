@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { getUrls } from '../../apiCalls';
+import { getUrls, postUrls } from '../../apiCalls';
 import UrlContainer from '../UrlContainer/UrlContainer';
 import UrlForm from '../UrlForm/UrlForm';
 
@@ -16,15 +16,15 @@ export class App extends Component {
   async componentDidMount() {
     try {
       const fetchedUrl = await getUrls()
-      console.log(fetchedUrl)
       this.setState({urls: fetchedUrl.urls})
     } catch (e) {
       this.setState({error: 'Failed to fetch Urls'})
     }
   }
 
-  makePost(title, url) {
-
+  makePost = (data) => {
+    this.setState({urls: [...this.state.urls, data]})
+    postUrls(data)
   }
 
   render() {
