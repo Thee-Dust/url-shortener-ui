@@ -8,7 +8,8 @@ export class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      urls: []
+      urls: [],
+      error: ''
     }
   }
 
@@ -18,7 +19,7 @@ export class App extends Component {
       console.log(fetchedUrl)
       this.setState({urls: fetchedUrl.urls})
     } catch (e) {
-
+      this.setState({error: 'Failed to fetch Urls'})
     }
   }
 
