@@ -25,7 +25,7 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
   Cypress.Commands.add('interceptUrls', () => {
-    cy.fixture('../fixture/UrlData.json')
+    cy.fixture('../fixtures/UrlData.json')
     .then(json => {
       cy.intercept('http://localhost:3001/api/v1/urls', json)
     })
