@@ -22,7 +22,6 @@ class UrlForm extends Component {
       long_url: this.state.url,
       short_url: `http://localhost:3001/useshorturl/${Date.now()}`
     };
-    console.log(newUrl)
     this.props.makePost(newUrl);
     this.clearInputs();
   }

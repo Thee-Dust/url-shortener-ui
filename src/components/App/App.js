@@ -16,7 +16,6 @@ export class App extends Component {
   async componentDidMount() {
     try {
       const fetchedUrl = await getUrls()
-      console.log(fetchedUrl);
       this.setState({urls: fetchedUrl.urls})
     } catch (e) {
       this.setState({error: 'Failed to fetch Urls'})
