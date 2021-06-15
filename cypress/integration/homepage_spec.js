@@ -17,11 +17,11 @@ describe("Home Page", () => {
       .get('[placeholder="URL to Shorten..."]')
   })
   
-  // it('Should input data to form', () => {
-  //   cy.get('form')
-  //     .get('[placeholder="Title..."]').type('cool url')
-  //     .get('[placeholder="URL to Shorten..."]').type('https://timesofindia.indiatimes.com/photo/67586673.cms')
-  // })
+  it('Should input data to form', () => {
+    cy.get('form')
+      .get('[placeholder="Title..."]').type('cool url')
+      .get('[placeholder="URL to Shorten..."]').type('https://timesofindia.indiatimes.com/photo/67586673.cms')
+  })
   
   // it('Should input data to form', () => {
   //   cy.get('form')
