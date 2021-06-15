@@ -14,8 +14,9 @@ class UrlForm extends Component {
     this.setState({ [e.target.name]: e.target.value });
   }
 
-  handleSubmit = e => {
+  handleSubmit = (e, title, url) => {
     e.preventDefault();
+    this.props.makePost(title, url)
     this.clearInputs();
   }
 

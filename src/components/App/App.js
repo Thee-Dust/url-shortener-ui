@@ -23,12 +23,16 @@ export class App extends Component {
     }
   }
 
+  makePost(title, url) {
+
+  }
+
   render() {
     return (
       <main className="App">
         <header>
           <h1>URL Shortener</h1>
-          <UrlForm />
+          <UrlForm makePost={this.makePost}/>
         </header>
 
         <UrlContainer urls={this.state.urls}/>
