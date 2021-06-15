@@ -14,7 +14,7 @@ class UrlForm extends Component {
     this.setState({ [e.target.name]: e.target.value });
   }
 
-  handleSubmit = (e, title, url) => {
+  handleSubmit = (e) => {
     e.preventDefault();
     const newUrl = {
       id: Date.now(),
@@ -33,7 +33,7 @@ class UrlForm extends Component {
 
   render() {
     return (
-      <form>
+      <form onSubmit={this.handleSubmit}>
         <input
           type='text'
           placeholder='Title...'

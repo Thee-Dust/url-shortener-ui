@@ -22,17 +22,22 @@ describe("Home Page", () => {
       .get('[placeholder="Title..."]').type('cool url')
       .get('[placeholder="URL to Shorten..."]').type('https://timesofindia.indiatimes.com/photo/67586673.cms')
   })
+
+  it('Should get an erro if areas not filled out', () => {
+    cy.get('form')
+      .get('[placeholder="Title..."]').type('cool url')
+      .get('button').click()
+      .get('input:invalid')
+  })
   
   it('Should input data to form', () => {
     cy.get('form')
       .get('[placeholder="Title..."]').type('cool url')
-      .get('[placeholder="URL to Shorten..."]').type('https://timesofindia.indiatimes.com/photo/67586673.cms')
+      .get('[placeholder="URL to Shorten..."]').type(`https://timesofindia.indiatimes.com/photo/67586673.cms`)
       .get('button').click()
-      .get('section > :nth-child(2)')
-      .contains('https://timesofindia.indiatimes.com/photo/67586673.cms')
       .get('section > :nth-child(2)')
       .contains('cool url')
       .get('section > :nth-child(2)')
-      .contains('http://localhost:3001/useshorturl/1623775201831')
+      .contains(`http://localhost:3001/useshorturl/`)
     })
 })
